@@ -85,9 +85,12 @@ function module:RemoveMediator(mediatorName)
         local interests = mediator.ListNotificationInterests()
         for _,notificationName in pairs(interests) do
             self:RemoveObserver(notificationName, mediator)
+            --这里如果报错是作者写的Mediator类中OnRemove的名字写错了，去Mediator中修改
             mediator:OnRemove()
         end
     end
+    --作者没有将mediatorName从map中移除
+    self.mediatorMap[mediatorName] = nil
 end
 
 function module:HasMediator(mediatorName)

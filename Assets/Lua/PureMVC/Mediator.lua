@@ -18,5 +18,5 @@ function module:HandleNotification(notification)
 end
 function module:OnRegister()
 end
-function module:OnRmove()
+function module:OnRemove()
 end

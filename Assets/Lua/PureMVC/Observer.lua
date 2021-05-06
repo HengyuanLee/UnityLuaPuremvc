@@ -14,5 +14,9 @@ function module:NotifyObserver(notification)
 end
 
 function module:CompareNotifyContext(obj)
-    return self.notifyContext == obj
+    --在这里我是始终返回false
+    --print(obj.__cname,self.NotifyContext.__cname)
+    --尼玛我排查了半天，作者你把NotifyContext写成了notifyContext，大小写写错了
+    --这个框架问题还比较多
+    return self.NotifyContext == obj
 end
