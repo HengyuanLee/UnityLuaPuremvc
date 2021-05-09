@@ -34,7 +34,8 @@ end
 function module:RemoveProxy(proxyName)
     for k,proxy in pairs(self.proxyMap) do
         if k == proxyName then
-            table.remove(self.proxyMap, k)
+            --这里作者使用移除数字索引的方法从Map中移除数据，但是这个map的索引值是string
+            self.proxyMap[k] = nil
             proxy:OnRemove()
             return proxy
         end
